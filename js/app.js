@@ -1,5 +1,5 @@
 const loadProducts = () => {
-  const url = `https://fakestoreapi.com/products`;
+  const url = `https://raw.githubusercontent.com/biswajitdasme/fakestore/main/db.json?fbclid=IwAR3O797OyJ7_sIc-kWT3R1jfFWQPPzz_kTw8lIgW5tPbxYIjWNlAdP6Lc0E`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
@@ -60,14 +60,17 @@ const updateTaxAndCharge = () => {
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
+    updateTotal();
   }
   if (priceConverted > 400) {
     setInnerText("delivery-charge", 50);
     setInnerText("total-tax", priceConverted * 0.3);
+    updateTotal();
   }
   if (priceConverted > 500) {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
+    updateTotal();
   }
 };
 
