@@ -21,11 +21,22 @@ const showProducts = (products) => {
       <h4>Total Reviews:${product.rating.count}</h4>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn" style="background-color:#f0932b">add to cart</button>
-      <button id="details-btn" class="btn"style="background-color:#fc5c65">Details</button></div>
+      <button onclick="loadSingleData(${product.id}) "data-bs-toggle="modal" data-bs-target="#exampleModal" id="details-btn" class="btn"style="background-color:#fc5c65">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+ /*      const displaySingleDetails = idDetail => {
+      fetch(`https://fakestoreapi.com/products/${idDetail}`)
+      .then(res=>res.json())
+      .then(data=>loadSingleData(data))
+} */
+const loadSingleData = items => {
+  fetch(`https://fakestoreapi.com/products/${items.id}`)
+  const modalBody = document.getElementById('modal-body');
+  modalBody.innerHTML =`<h4>${product.title}</h4>`;
+ 
+}
 // update price
 let count = 0;
 const addToCart = (id, price) => {
